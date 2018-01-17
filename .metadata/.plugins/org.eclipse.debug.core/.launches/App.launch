@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/hifly/src/test/java/kr/ac/hansung/hifly/App.java"/>
+<listEntry value="/hifly/src/main/java/kr/ac/hansung/main/App.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="kr.ac.hansung.hifly.App"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="kr.ac.hansung.main.App"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="hifly"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>
