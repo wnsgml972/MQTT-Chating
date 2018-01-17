@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.swing.*;
 
 import kr.ac.hansung.debuger.Debuger;
+import kr.ac.hansung.panel.ChatPanel;
 import kr.ac.hansung.panel.IntroPanel;
 import kr.ac.hansung.panel.PanelManager;
 import lombok.Getter;

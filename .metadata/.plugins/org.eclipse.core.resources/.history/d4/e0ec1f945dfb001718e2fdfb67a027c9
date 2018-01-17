@@ -36,6 +36,7 @@ public class IntroPanel extends JPanel{
 		add(roomLabel);
 		add(roomField);
 		add(titleLabel);
+
 		
 		roomField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

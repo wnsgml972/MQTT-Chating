@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import kr.ac.hansung.client.SubClient;
 import kr.ac.hansung.debuger.Debuger;
+import kr.ac.hansung.main.MainFrame;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,14 +37,23 @@ public class IntroPanel extends JPanel{
 		add(roomLabel);
 		add(roomField);
 		add(titleLabel);
+
 		
 		roomField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String text = roomField.getText().toString();				
+				String text = roomField.getText().toString();
+/*				for(int i=0; i<MainFrame.topicVector.size(); i++){
+					if(text.equals(MainFrame.topicVector.get(i))){
+						titleLabel.setText("이미 이름이 같은 방이 있습니다.");
+						return;
+					}
+				}
+				MainFrame.topicVector.add(text);*/
 				SubClient subClient = new SubClient();
 				subClient.subscribe(text);
 				PanelManager.getInstance().getMain().setTopic(text);
 				PanelManager.getInstance().setContentPane(ChatPanel.getInstance());
+				
 			}
 		});
 	}

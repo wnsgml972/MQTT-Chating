@@ -22,8 +22,6 @@ public class GroundPanel extends JPanel
 	private GroundPanel(){ 
 		setLayout(new BorderLayout());
 		setFocusable(false);
-		
-		textArea.setEditable(false);
 		add(textArea, BorderLayout.CENTER);
 	}
 	

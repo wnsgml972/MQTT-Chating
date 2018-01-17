@@ -36,6 +36,7 @@ public class IntroPanel extends JPanel{
 		add(roomLabel);
 		add(roomField);
 		add(titleLabel);
+
 		
 		roomField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,8 +44,7 @@ public class IntroPanel extends JPanel{
 				SubClient subClient = new SubClient();
 				subClient.subscribe(text);
 				PanelManager.getInstance().getMain().setTopic(text);
-				PanelManager.getInstance().setContentPane(ChatPanel.getInstance());
-			}
+				PanelManager.getInstance().setContentPane(ChatPanel.getInstance());			}
 		});
 	}
 	
