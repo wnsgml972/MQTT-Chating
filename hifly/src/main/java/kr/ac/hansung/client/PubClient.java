@@ -3,14 +3,13 @@ package kr.ac.hansung.client;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import kr.ac.hansung.values.UnChangableValues;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class PubClient {
-
-	private final String MQTT_BROKET_IP = "tcp://192.168.0.8:1883";
 	private String topic = "/topic/sample";
 	private String content = "Message from MqttPublishSample";
 	private int qos = 2;
@@ -25,10 +24,10 @@ public class PubClient {
 		content = this.content;
 		
 		try {
-			MqttClient client = new MqttClient(MQTT_BROKET_IP, MqttClient.generateClientId(), new MemoryPersistence());
+			MqttClient client = new MqttClient(UnChangableValues.MQTT_BROKET_IP, MqttClient.generateClientId(), new MemoryPersistence());
 			MqttConnectOptions connOpts = new MqttConnectOptions();
 			connOpts.setCleanSession(true);
-			System.out.println("Connecting to broker: " + MQTT_BROKET_IP);
+			System.out.println("Connecting to broker: " + UnChangableValues.MQTT_BROKET_IP);
 			// init
 
 			

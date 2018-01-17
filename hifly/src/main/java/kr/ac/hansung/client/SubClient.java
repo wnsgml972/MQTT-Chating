@@ -3,23 +3,22 @@ package kr.ac.hansung.client;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import kr.ac.hansung.values.UnChangableValues;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class SubClient {
-
-	private final String MQTT_BROKET_IP = "tcp://192.168.0.8:1883";
-    private String topic = "/topic/sample";
-    
+	
+    private String topic = "/topic/sample";    
 	
 	public void subscribe(String topic) {
         
 		topic = this.topic;
 		
 		try {
-			MqttClient client = new MqttClient(MQTT_BROKET_IP, MqttClient.generateClientId(), new MemoryPersistence());		
+			MqttClient client = new MqttClient(UnChangableValues.MQTT_BROKET_IP, MqttClient.generateClientId(), new MemoryPersistence());		
 			// init
 			
 			client.connect();

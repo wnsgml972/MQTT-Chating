@@ -1,0 +1,79 @@
+package kr.ac.hansung.panel;
+
+import javax.swing.*;
+
+class GroundPanel extends JPanel // 단어떨어지는 패널
+{
+	public GroundPanel() // 초기 단어 만드는 쓰레드를 실행!
+	{
+		setLayout(null);
+		setFocusable(false);
+	}
+
+	public void printWord() // 떨어지는 단어 보여주는 함수
+	{
+		if (word.state) // 단어가 있다면
+		{
+			int x = (int) (Math.random() * (getWidth() - 200)); // 랜덤한 위치
+			int y = 0;
+			int index = (int) (Math.random() * word.getSize()); // 랜덤한 인덱스
+
+			JLabel labelText = new JLabel(word.getWord(index), SwingConstants.CENTER);
+			JLabel labelImg = new JLabel(ImageCollection.fallingNormalStarImg);
+			labelText.setForeground(Color.white);
+			labelText.setLocation(x, y);
+			labelText.setSize(200, 50);
+			labelText.setFont(new Font("아이럽우유", Font.ITALIC, 20));
+
+			labelImg.setLocation(x, y);
+			labelImg.setSize(205, 100);
+
+			int ran = (int) (Math.random() * (20 + (gameLevel * 2)));
+
+			if (ran == 0) // 랜덤으로 파란색 단어 생성 랜덤 확률은 아직 안정함 일단 0~5
+			{
+				labelImg.setIcon(ImageCollection.clearItemIcon);
+				labelText.setForeground(Color.yellow);
+				labelText.setFont(new Font("아이럽우유", Font.ITALIC, 30));
+			}
+			if (ran == 1) {
+				labelImg.setIcon(ImageCollection.clearItemIcon);
+				labelText.setForeground(Color.orange);
+				labelText.setFont(new Font("아이럽우유", Font.ITALIC, 30));
+			}
+			if (ran == 2) {
+				labelImg.setIcon(ImageCollection.heart);
+				labelText.setForeground(Color.magenta);
+				labelText.setFont(new Font("아이럽우유", Font.ITALIC, 30));
+			}
+
+			int wordspeed = (int) (Math.random() * 30) + 15 - (int) (gameLevel * 2);
+			WordDownThread wordDownThread;
+			wordDownThread = new WordDownThread(labelText, labelImg, wordspeed);// 만든
+			// 라벨이랑
+			// 스피드
+			// 넘겨줌
+			threadVector.add(wordDownThread); // 떨어지는 쓰레드 벡터에 삽입
+			wordDownThread.start(); // 떨어지는 쓰레드 시작
+
+			add(labelText);
+			add(labelImg);
+			repaint();
+		}
+	}
+
+	@Override
+	public void paintComponent(Graphics g) // 한계선 설정
+	{
+		super.paintComponent(g);
+		g.drawImage(ImageCollection.BackgroundTopImg, 0, 0, getWidth(), getHeight(), this);
+		g.drawLine(0, getHeight() - 30, getWidth(), getHeight() - 30);
+		g.setColor(Color.yellow);
+		g.setFont(new Font("아이럽우유", Font.ITALIC, 25));
+
+		g.drawString("목숨 : ", 20, getHeight());
+		for (int i = 0; i < heartNum; i++) {
+			g.drawImage(ImageCollection.lifeStarImg, 100 + (i * 20), getHeight() - 20, 20, 20, this);
+		}
+	}
+}

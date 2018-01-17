@@ -1,0 +1,13 @@
+package kr.ac.hansung.panel;
+
+import javax.swing.*;
+
+public class ChatPanel extends JPanel{
+	private static ChatPanel instance;
+	
+	synchronized private ChatPanel(){
+		if(instance == null){
+			
+		}
+	}
+}

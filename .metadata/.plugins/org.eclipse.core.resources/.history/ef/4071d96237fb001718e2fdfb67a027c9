@@ -1,0 +1,28 @@
+package kr.ac.hansung.main;
+
+import javax.swing.*;
+
+import kr.ac.hansung.panel.PanelManager;
+
+public class MainFrame extends JFrame
+{	
+	private PanelManager panelManager;
+	
+	public MainFrame(){
+		setSize(1100, 800);
+		setTitle("MQTT 채팅");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setVisible(true);		
+		
+		PanelManager.getInstance().setMain(this);
+		start();
+	}
+	public void start() {
+		panelManager.setContentPane(panelManager.getChatPanel());
+	}
+    public static void main( String[] args )
+    {
+    	new MainFrame();
+    }
+}

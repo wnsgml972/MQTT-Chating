@@ -1,0 +1,23 @@
+package kr.ac.hansung.panel;
+
+import java.awt.BorderLayout;
+
+import javax.swing.*;
+
+public class ChatPanel extends JPanel{
+	private static ChatPanel instance;
+	
+	private ChatPanel(){ 		
+		setLayout(new BorderLayout());
+		add(GroundPanel.getInstance(), BorderLayout.CENTER);
+		add(InputPanel.getInstance(), BorderLayout.SOUTH);
+	}
+	
+	synchronized public static ChatPanel getInstance(){
+		if(instance == null){
+			instance = new ChatPanel();
+		}
+		return instance;
+	}
+	
+}

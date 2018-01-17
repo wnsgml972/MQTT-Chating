@@ -1,0 +1,25 @@
+package kr.ac.hansung.main;
+
+import javax.swing.*;
+
+import kr.ac.hansung.panel.PanelManager;
+
+public class MainFrame extends JFrame
+{	
+	private PanelManager panelManager;
+	
+	public MainFrame(){
+		setSize(1100, 800);
+		
+		
+		panelManager = PanelManager.getInstance(this);
+		start();
+	}
+	public void start() {
+		panelManager.setContentPane(panelManager.getChatPanel());
+	}
+    public static void main( String[] args )
+    {
+    	new MainFrame();
+    }
+}
