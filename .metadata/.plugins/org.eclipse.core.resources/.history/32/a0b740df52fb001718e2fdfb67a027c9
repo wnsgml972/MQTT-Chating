@@ -1,0 +1,27 @@
+package kr.ac.hansung.panel;
+import javax.swing.*;
+
+import kr.ac.hansung.debuger.Debuger;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class IntroPanel extends JPanel{
+	private static IntroPanel instance;
+	private JLabel roomLabel;
+	private JTextField roomField;
+	
+	private IntroPanel(){ 
+		roomField = new JTextField();
+	}
+	
+	synchronized public static IntroPanel getInstance(){
+		if(instance == null){
+			Debuger.log(ChatPanel.class.toString(), "생성");
+			instance = new IntroPanel();
+		}
+		return instance;
+	}
+	
+}

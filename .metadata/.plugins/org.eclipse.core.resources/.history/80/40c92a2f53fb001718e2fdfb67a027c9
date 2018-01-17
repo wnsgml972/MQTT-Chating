@@ -1,0 +1,37 @@
+package kr.ac.hansung.panel;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.*;
+
+import kr.ac.hansung.debuger.Debuger;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class IntroPanel extends JPanel{
+	private static IntroPanel instance;
+	private JLabel roomLabel;
+	private JTextField roomField;
+	
+	private IntroPanel(){ 
+		setLayout(new FlowLayout());
+		roomLabel = new JLabel("방 만들기");
+		roomLabel.setFont(new Font("아이럽우유", Font.ITALIC, 20));
+		
+		roomField = new JTextField();
+		
+		add(roomLabel);
+		add(roomField);
+	}
+	
+	synchronized public static IntroPanel getInstance(){
+		if(instance == null){
+			Debuger.log(ChatPanel.class.toString(), "생성");
+			instance = new IntroPanel();
+		}
+		return instance;
+	}
+	
+}

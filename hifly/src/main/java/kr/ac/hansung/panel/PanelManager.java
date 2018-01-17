@@ -17,10 +17,12 @@ public class PanelManager
 	private ChatPanel chatPanel;
 	private GroundPanel groundPanel;
 	private InputPanel inputPanel;
+	private IntroPanel introPanel;
 
-	private PanelManager() {
+	private PanelManager() { 
 		groundPanel = GroundPanel.getInstance();
 		inputPanel = InputPanel.getInstance();
+		introPanel = IntroPanel.getInstance();
 		chatPanel = ChatPanel.getInstance();
 	}
 	synchronized public static PanelManager getInstance(){
@@ -34,6 +36,6 @@ public class PanelManager
 	// 화면을 전환
 	public void setContentPane(JPanel panel) {
 		main.setContentPane(panel);
-		main.getContentPane().revalidate();		
+		main.getContentPane().revalidate();
 	}
 }

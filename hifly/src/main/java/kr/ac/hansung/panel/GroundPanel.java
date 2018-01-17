@@ -8,8 +8,12 @@ import java.awt.Graphics;
 import javax.swing.*;
 
 import kr.ac.hansung.debuger.Debuger;
+import lombok.Getter;
+import lombok.Setter;
 
-class GroundPanel extends JPanel
+@Setter
+@Getter
+public class GroundPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	private static GroundPanel instance;
@@ -20,7 +24,6 @@ class GroundPanel extends JPanel
 		setFocusable(false);
 		add(textArea, BorderLayout.CENTER);
 	}
-
 	
 	synchronized public static GroundPanel getInstance(){
 		if(instance == null){
