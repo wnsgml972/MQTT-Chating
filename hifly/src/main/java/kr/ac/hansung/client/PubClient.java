@@ -42,7 +42,6 @@ public class PubClient {
 			message.setQos(qos);
 			// set qos
 
-			
 			client.publish(topic, message);
 			Debuger.log(SubClient.class.toString(), "Message published");
 			// publish

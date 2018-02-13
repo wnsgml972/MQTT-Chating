@@ -29,7 +29,7 @@ public class IntroPanel extends JPanel{
 		roomField = new JTextField(15);		
 		roomField.setMargin(new Insets(10, 10,10,10));
 		
-		titleLabel = new JLabel("준희의 모스키토 클라이언트 ");
+		titleLabel = new JLabel("모스키토 클라이언트 ");
 		titleLabel.setFont(new Font("아이럽우유", Font.ITALIC, 20));		
 		titleLabel.setForeground(Color.blue);
 		

@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MainFrame extends JFrame
-{			
+{		
 	private String topic;
 	
 	public MainFrame(){

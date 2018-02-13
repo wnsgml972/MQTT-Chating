@@ -1,6 +1,0 @@
-package ChangableValues;
-
-public interface UnChangableValues {
-	public static final int MQTT_BROKET_IP = ;
-	
-}

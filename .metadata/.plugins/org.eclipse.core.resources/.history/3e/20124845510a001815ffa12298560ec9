@@ -1,0 +1,78 @@
+package Client;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
+
+public class ClientGui extends JFrame {
+	private LoginPanel loginPanel = new LoginPanel(this);
+	public ClientGui() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setContentPane(loginPanel);
+		setSize(400, 500);
+		setVisible(true);
+		setResizable(false);
+	}
+
+	class LoginPanel extends JPanel {
+		ClientGui clientGui;
+		JTextField t = new JTextField(10);
+		JLabel la = new JLabel("NickName");
+		JButton start = new JButton("Start");
+		public LoginPanel(ClientGui clientGui) {
+			this.clientGui = clientGui;
+			setLayout(null);
+			setBackground(Color.BLACK);
+			
+			la.setForeground(Color.WHITE);
+			la.setFont(new Font("Serif", Font.BOLD, 35));
+			la.setSize(200, 50);
+			la.setLocation(125, 120);
+			add(la);
+			
+			t.setFont(new Font("Serif", Font.BOLD, 35));
+			t.setSize(150, 50);
+			t.setLocation(125, 200);
+			add(t);
+			
+			start.setLocation(107,330);
+			start.setSize(180,60);
+			start.setBackground(Color.BLACK);
+			start.setForeground(Color.WHITE);
+			start.setFont(new Font("Serif", Font.BOLD, 35));
+			add(start);
+			start.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String nickName = t.getText();
+					clientGui.setContentPane(new ClientChat(nickName));
+					clientGui.repaint();
+					clientGui.revalidate();
+				}
+			});
+		}
+		
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.setColor(Color.WHITE);
+			g.drawRect(95, 85, 205, 200);
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new ClientGui();
+	}
+
+}

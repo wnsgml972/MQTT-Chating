@@ -27,8 +27,9 @@ public class SubClient {
 		try {
 			client = new MqttClient(UnChangableValues.MQTT_BROKET_IP, MqttClient.generateClientId(), new MemoryPersistence());		
 			// init
+			
 			client.connect();
-			// connect
+			// connect			
 			
 			client.setCallback(new MqttCallback() {
 				public void messageArrived(String arg0, MqttMessage arg1) throws Exception {
